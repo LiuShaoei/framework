@@ -11,7 +11,7 @@ import com.framework.app.utils.FragmentUtils;
  * Created by admin on 2017/12/20.
  */
 
-public class MainPresenter extends BasePresenter<BaseView>{
+public class MainPresenter extends BasePresenter<MainContract>{
 
     FragmentUtils fragmentUtils;
 
@@ -23,4 +23,11 @@ public class MainPresenter extends BasePresenter<BaseView>{
     public void changeFragment(String tag, FragmentManager fragmentManager) {
         fragmentUtils.showFragment(tag, fragmentManager);
     }
+
+
+    public void toLogin(String phone){
+      mViewRf.get().getRadioButton();
+    }
+
+
 }

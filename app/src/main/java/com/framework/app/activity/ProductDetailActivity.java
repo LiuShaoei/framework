@@ -30,9 +30,10 @@ public class ProductDetailActivity extends BaseActivity<BaseView,BasePresenter<B
     private TabLayout tabLayout;
 
     @Override
-    public BasePresenter<BaseView> creatPresenter() {
+    public BasePresenter<BaseView> createPresenter() {
         return null;
     }
+
 
     @Override
     public int getLayoutId() {

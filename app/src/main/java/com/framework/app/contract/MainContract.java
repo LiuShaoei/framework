@@ -1,5 +1,7 @@
 package com.framework.app.contract;
 
+import android.widget.RadioButton;
+
 import com.framework.app.base.BaseView;
 
 /**
@@ -7,5 +9,5 @@ import com.framework.app.base.BaseView;
  */
 
 public interface MainContract extends BaseView {
-
+    RadioButton getRadioButton();
 }

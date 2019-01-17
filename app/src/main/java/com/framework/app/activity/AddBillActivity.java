@@ -26,7 +26,7 @@ public class AddBillActivity extends BaseActivity<BaseView, BasePresenter<BaseVi
     private AddBillFragmentAdapter mAdapter;
 
     @Override
-    public BasePresenter creatPresenter() {
+    public BasePresenter createPresenter() {
         return null;
     }
 
@@ -49,7 +49,7 @@ public class AddBillActivity extends BaseActivity<BaseView, BasePresenter<BaseVi
 
     @Override
     protected LinearLayout getTopView() {
-        return view;
+        return null;
     }
 
 }

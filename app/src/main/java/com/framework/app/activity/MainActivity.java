@@ -11,11 +11,12 @@ import com.framework.app.R;
 import com.framework.app.base.BaseActivity;
 import com.framework.app.base.BaseView;
 import com.framework.app.config.Parms;
+import com.framework.app.contract.MainContract;
 import com.framework.app.presenter.MainPresenter;
 
 import butterknife.BindView;
 
-public class MainActivity extends BaseActivity<BaseView, MainPresenter> implements RadioGroup.OnCheckedChangeListener {
+public class MainActivity extends BaseActivity<MainContract, MainPresenter> implements MainContract, RadioGroup.OnCheckedChangeListener {
 
     @BindView(R.id.radio_home)
     RadioButton radioHome;
@@ -24,7 +25,7 @@ public class MainActivity extends BaseActivity<BaseView, MainPresenter> implemen
     private long exitTime = 0;
 
     @Override
-    public MainPresenter creatPresenter() {
+    public MainPresenter createPresenter() {
         return new MainPresenter();
     }
 
@@ -39,7 +40,10 @@ public class MainActivity extends BaseActivity<BaseView, MainPresenter> implemen
         mainGroup.setOnCheckedChangeListener(this);
         radioHome.setChecked(true);
 
+        mPresenter.toLogin("12132423423");
+
     }
+
 
     @Override
     protected LinearLayout getTopView() {
@@ -80,4 +84,13 @@ public class MainActivity extends BaseActivity<BaseView, MainPresenter> implemen
         return super.onKeyDown(keyCode, event);
     }
 
+    @Override
+    public RadioButton getRadioButton() {
+        return radioHome;
+    }
+
+    @Override
+    public BaseView getBaseView() {
+        return null;
+    }
 }

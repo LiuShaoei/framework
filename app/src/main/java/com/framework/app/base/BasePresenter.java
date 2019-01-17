@@ -7,12 +7,12 @@ public class BasePresenter<T> {
     protected WeakReference<T> mViewRf;
 
     //进行绑定
-    public void attachView(T view){
-        mViewRf=new WeakReference<T>(view);
+    public void attachView(T view) {
+        mViewRf = new WeakReference<T>(view);
     }
 
     //解除绑定
-    public void detachView(){
+    public void detachView() {
         mViewRf.clear();
     }
 

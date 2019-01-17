@@ -13,6 +13,7 @@ import com.framework.app.net.NetStateReceiver;
 import com.framework.app.net.NetUtils;
 import com.framework.app.utils.DialogUtils;
 import com.framework.app.utils.StatusBar;
+import com.framework.app.utils.status.QMUIStatusBarHelper;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -39,8 +40,9 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCom
         getWindow().setBackgroundDrawable(null);
         MyApp.getInstance().activityList.add(this);
         unbinder = ButterKnife.bind(this);
-        if (getTopView() != null) {
-            StatusBar.init(this, getTopView());
+        if (getTopView() == null) {
+            QMUIStatusBarHelper.translucent(this);
+            QMUIStatusBarHelper.setStatusBarLightMode(this);
         }
         if (mCompositeDisposable == null) {
             mCompositeDisposable = new CompositeDisposable();
@@ -57,14 +59,14 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCom
                 onNetworkDisConnected();
             }
         };
-        mPresenter = creatPresenter();
+        mPresenter = createPresenter();
         if (mPresenter!=null){
             mPresenter.attachView((V) this);
         }
         initData();
     }
 
-    public abstract T creatPresenter();
+    public abstract T createPresenter();
 
     @Override
     protected void onResume() {
