@@ -76,19 +76,7 @@
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
-    <!-- 默认圆角按钮样式 -->
-    <style name="ButtonStyle" parent="Widget.AppCompat.Button.Borderless">
-        <item name="android:paddingLeft">@dimen/space_30</item>
-        <item name="android:paddingRight">@dimen/space_30</item>
-        <item name="android:textSize">@dimen/font_size_30px</item>
-        <item name="android:textColor">@color/white90</item>
-        <item name="android:gravity">center</item>
-        <item name="android:background">@drawable/selector_button</item>
-        <item name="android:foreground">@null</item>
-        <item name="android:focusable">false</item>
-        <!-- 解决 Android 5.1 及以上版本 Button 英文字符串自动变大写的问题 -->
-        <item name="android:textAllCaps">false</item>
-    </style>
+
 
     <!-- 不带圆角按钮样式 -->
     <style name="RectButtonStyle" parent="ButtonStyle">
@@ -119,7 +107,7 @@
     </style>
 
 
-    <style name="MyButtonStyle" parent="Widget.AppCompat.Button.Borderless">
+    <style name="ButtonStyle" parent="Widget.AppCompat.Button.Borderless">
         <item name="android:layout_marginTop">@dimen/space_20</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/space_80</item>

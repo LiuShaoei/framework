@@ -16,17 +16,17 @@
 
     <Button
         android:id="@+id/login"
-        style="@style/MyButtonStyle"
+        style="@style/ButtonStyle"
         android:text="登录" />
 
     <Button
         android:id="@+id/register"
-        style="@style/MyButtonStyle"
+        style="@style/ButtonStyle"
         android:text="注册" />
 
     <Button
         android:id="@+id/test"
-        style="@style/MyButtonStyle"
+        style="@style/ButtonStyle"
         android:text="测试" />
 
 </LinearLayout>

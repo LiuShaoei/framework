@@ -53,7 +53,6 @@ public class RegisterActivity extends BaseActivity<RegisterContract, RegisterPre
 
     @Override
     protected void initView() {
-
         mEditTextInputHelper = new EditTextInputHelper(mCommitView, false);
         mEditTextInputHelper.addViews(mPhoneView, mCodeView, mPasswordView1, mPasswordView2);
     }
@@ -61,7 +60,7 @@ public class RegisterActivity extends BaseActivity<RegisterContract, RegisterPre
     @Override
     protected void initData() {
         mContext = RegisterActivity.this;
-        new NavigationBar.Builder(mContext).setTitle(getResources().getString(R.string.register_text));
+        new NavigationBar.Builder(mContext).setTitle(getResources().getString(R.string.register_text)).builder();
 
     }
 

@@ -6,6 +6,8 @@ import android.widget.LinearLayout;
 
 import com.framework.app.R;
 import com.framework.app.activity.LoginActivity;
+import com.framework.app.activity.RegisterActivity;
+import com.framework.app.activity.TestActivity;
 import com.framework.app.base.BaseFragment;
 import com.framework.app.base.BasePresenter;
 import com.framework.app.base.BaseView;
@@ -60,8 +62,10 @@ public class MySelfFragment extends BaseFragment<BaseView, BasePresenter<BaseVie
                 startActivity(LoginActivity.class);
                 break;
             case R.id.register:
+                startActivity(RegisterActivity.class);
                 break;
             case R.id.test:
+                startActivity(TestActivity.class);
                 break;
         }
     }
