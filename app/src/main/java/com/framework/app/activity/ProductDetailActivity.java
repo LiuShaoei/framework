@@ -41,6 +41,16 @@ public class ProductDetailActivity extends BaseActivity<BaseView,BasePresenter<B
     }
 
     @Override
+    protected void setTitleBar() {
+
+}
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
     protected void initData() {
 //初始化各fragment
         mOneFragment = new OneFragment();
@@ -80,8 +90,4 @@ public class ProductDetailActivity extends BaseActivity<BaseView,BasePresenter<B
         });
     }
 
-    @Override
-    protected LinearLayout getTopView() {
-        return null;
-    }
 }

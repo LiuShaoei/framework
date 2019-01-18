@@ -22,7 +22,7 @@ public class FragmentUtils {
     public void showFragment(String tag, FragmentManager fragmentManager) {
         Fragment fragmentByTag = fragmentManager.findFragmentByTag(tag);
         if (fragmentByTag == null) {
-            fragmentByTag = creatFragmentByTag(tag);
+            fragmentByTag = createFragmentByTag(tag);
             addFragment(fragmentByTag, tag, fragmentManager);
         } else {
             showMyFragment(fragmentByTag, fragmentManager);
@@ -49,7 +49,7 @@ public class FragmentUtils {
     }
 
 
-    private Fragment creatFragmentByTag(String tag) {
+    private Fragment createFragmentByTag(String tag) {
         switch (tag) {
             case Parms.FragmentTag.HOME_FRAGMENT:
                 return HomeFragment.getInStance();

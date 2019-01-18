@@ -46,7 +46,7 @@ public class DialogUtils extends DialogFragment {
     }
 
     public interface onClickButtonListener{
-        void clickNegtive();
+        void clickNegative();
         void clickPositive();
     }
 
@@ -95,10 +95,10 @@ public class DialogUtils extends DialogFragment {
         }else {
             messageTv.setText(mBuilder.message);
         }
-        if(TextUtils.isEmpty(mBuilder.negtive)){
+        if(TextUtils.isEmpty(mBuilder.negative)){
             negativeTv.setText("取消");
         }else {
-            negativeTv.setText(mBuilder.negtive);
+            negativeTv.setText(mBuilder.negative);
         }
         if(TextUtils.isEmpty(mBuilder.positive)){
             positiveTv.setText("确定");
@@ -125,7 +125,7 @@ public class DialogUtils extends DialogFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.negative:
-                mBuilder.mListener.clickNegtive();
+                mBuilder.mListener.clickNegative();
                 dismissAllowingStateLoss();
                 break;
             case R.id.positive:
@@ -138,7 +138,7 @@ public class DialogUtils extends DialogFragment {
     public static class Builder{
         private String title;
         private String message;
-        private String negtive;
+        private String negative;
         private String positive;
         private boolean isCancel;
         private onClickButtonListener mListener;
@@ -151,8 +151,8 @@ public class DialogUtils extends DialogFragment {
             this.message=message;
             return this;
         }
-        public Builder setNegtive(String negtive){
-            this.negtive=negtive;
+        public Builder setNegative(String negtive){
+            this.negative=negtive;
             return this;
         }
         public Builder setPositive(String positive){

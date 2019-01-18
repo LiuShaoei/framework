@@ -25,7 +25,7 @@ public class HomeFragment extends BaseFragment<HomeFragMentContract, HomeFragmen
     }
 
     @Override
-    protected HomeFragmentPresenter creatPresenter() {
+    protected HomeFragmentPresenter createPresenter() {
         return new HomeFragmentPresenter();
     }
 

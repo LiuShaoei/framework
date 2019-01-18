@@ -42,7 +42,7 @@ public class AddBillFragment extends BaseLazyFragment<AddBillFragmentContract,Ad
     }
 
     @Override
-    protected AddBillPresenter creatPresenter() {
+    protected AddBillPresenter createPresenter() {
         return new AddBillPresenter(getActivity());
     }
 

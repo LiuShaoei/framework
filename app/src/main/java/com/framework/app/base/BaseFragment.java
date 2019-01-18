@@ -1,5 +1,6 @@
 package com.framework.app.base;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,12 +11,12 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.framework.app.R;
-import com.framework.app.utils.StatusBar;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
+import xst.app.com.mylibrary.utils.StatusBar;
 
 /**
  * Created by admin on 2017/12/20.
@@ -45,14 +46,14 @@ public abstract class BaseFragment<V, T extends BasePresenter<V>> extends Fragme
             mDisposable = new CompositeDisposable();
         }
 
-        mPresenter = creatPresenter();
+        mPresenter = createPresenter();
         if (mPresenter != null) {
             mPresenter.attachView((V) this);
         }
         initData();
     }
 
-    protected abstract T creatPresenter();
+    protected abstract T createPresenter();
 
     public BaseView getBaseView() {
         return (BaseView) mPresenter.mViewRf.get();
@@ -77,6 +78,14 @@ public abstract class BaseFragment<V, T extends BasePresenter<V>> extends Fragme
         mPresenter = null;
     }
 
+    /**
+     * 跳转到新的页面
+     *
+     * @param cls
+     */
+    public void startActivity(Class<? extends Activity> cls) {
+        startActivity(new Intent(getActivity(), cls));
+    }
 
     public void addDisposed(Disposable disposable) {
         mDisposable.add(disposable);

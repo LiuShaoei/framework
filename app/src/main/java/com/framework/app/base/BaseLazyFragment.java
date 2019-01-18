@@ -7,7 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.framework.app.utils.StatusBar;
+import xst.app.com.mylibrary.base.LazyLoadFragment;
+import xst.app.com.mylibrary.utils.StatusBar;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -31,7 +32,7 @@ public abstract class BaseLazyFragment<V, T extends BasePresenter<V>> extends La
             mDisposable = new CompositeDisposable();
         }
 
-        mPresenter = creatPresenter();
+        mPresenter = createPresenter();
         mPresenter.attachView((V) this);
 
     }
@@ -52,7 +53,7 @@ public abstract class BaseLazyFragment<V, T extends BasePresenter<V>> extends La
         return rootView;
     }
 
-    protected abstract T creatPresenter();
+    protected abstract T createPresenter();
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

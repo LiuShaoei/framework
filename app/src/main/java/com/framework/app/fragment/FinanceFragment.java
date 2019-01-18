@@ -27,7 +27,7 @@ public class FinanceFragment extends BaseFragment<BaseView,BasePresenter<BaseVie
     }
 
     @Override
-    protected BasePresenter<BaseView> creatPresenter() {
+    protected BasePresenter<BaseView> createPresenter() {
         return null;
     }
 

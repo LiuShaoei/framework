@@ -3,8 +3,6 @@ package com.framework.app.base;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.LinearLayout;
 
 import com.framework.app.MyApp;
 import com.framework.app.R;
@@ -12,19 +10,18 @@ import com.framework.app.net.NetChangeObserver;
 import com.framework.app.net.NetStateReceiver;
 import com.framework.app.net.NetUtils;
 import com.framework.app.utils.DialogUtils;
-import com.framework.app.utils.StatusBar;
-import com.framework.app.utils.status.QMUIStatusBarHelper;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
+import xst.app.com.mylibrary.base.AppBaseActivity;
 
 /**
  * Created by admin on 2017/12/19.
  */
 
-public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCompatActivity {
+public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppBaseActivity {
     private Unbinder unbinder;
     protected T mPresenter;
     /**
@@ -36,14 +33,13 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCom
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(getLayoutId());
         getWindow().setBackgroundDrawable(null);
         MyApp.getInstance().activityList.add(this);
         unbinder = ButterKnife.bind(this);
-        if (getTopView() == null) {
-            QMUIStatusBarHelper.translucent(this);
-            QMUIStatusBarHelper.setStatusBarLightMode(this);
-        }
+//        if (getTopView() == null) {
+//            QMUIStatusBarHelper.translucent(this);
+//            QMUIStatusBarHelper.setStatusBarLightMode(this);
+//        }
         if (mCompositeDisposable == null) {
             mCompositeDisposable = new CompositeDisposable();
         }
@@ -60,10 +56,11 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCom
             }
         };
         mPresenter = createPresenter();
-        if (mPresenter!=null){
+        if (mPresenter != null) {
             mPresenter.attachView((V) this);
         }
-        initData();
+        super.init();
+
     }
 
     public abstract T createPresenter();
@@ -87,31 +84,12 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCom
         if (unbinder != null) {
             unbinder.unbind();
         }
-        if (mPresenter!=null) {
+        if (mPresenter != null) {
             mPresenter.detachView();
         }
         mPresenter = null;
         MyApp.getInstance().activityList.remove(this);
     }
-
-    /**
-     * 获取布局文件id
-     *
-     * @return
-     */
-    public abstract int getLayoutId();
-
-    /**
-     * 初始化数据
-     */
-    protected abstract void initData();
-
-    /**
-     * 获取沉浸式状态栏顶部占位栏
-     *
-     * @return
-     */
-    protected abstract LinearLayout getTopView();
 
     /**
      * 网络连接状态
@@ -131,7 +109,7 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCom
                 .setMessage("网络连接失败,请检查网络")
                 .setonClickButtonListener(new DialogUtils.onClickButtonListener() {
                     @Override
-                    public void clickNegtive() {
+                    public void clickNegative() {
 
                     }
 
@@ -143,25 +121,6 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCom
                     }
                 })).showDialog(getFragmentManager());
     }
-
-
-    /*public Dialog showLoading(String message){
-        if(mLoading==null){
-            mLoading=new LoadingUtils(this);
-            mLoading.setOnKeyListener(new DialogInterface.OnKeyListener() {
-                @Override
-                public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
-                    if(keyCode==KeyEvent.KEYCODE_BACK){
-                        mCompositeDisposable.dispose();
-                    }
-                    return false;
-                }
-            });
-        }
-        mLoading.show(message);
-        return mLoading;
-    }*/
-
 
     public void addDisposed(Disposable disposable) {
         if (mCompositeDisposable != null) {

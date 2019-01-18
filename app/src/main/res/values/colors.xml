@@ -3,7 +3,7 @@
     <!--<color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>-->
-
+    <color name="colorAccent">#5A8DDF</color>
     <!--App主题颜色-->
     <color name="app_color">#FFA700</color>
     <!--页面背景颜色-->
@@ -17,5 +17,12 @@
 
     <!--状态栏的颜色-->
     <color name="blue">#3091D8</color>
+
+    <!-- 按钮按压时的颜色 -->
+    <color name="colorButtonPressed">#1976d2</color>
+    <!-- 按钮禁用时的颜色 -->
+    <color name="colorButtonDisable">#DDDDDD</color>
+    <!-- 分割线的颜色 -->
+    <color name="colorLine">#ECECEC</color>
 
 </resources>

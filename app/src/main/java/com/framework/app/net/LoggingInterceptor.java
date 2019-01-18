@@ -1,6 +1,6 @@
 package com.framework.app.net;
 
-import com.framework.app.utils.L;
+import xst.app.com.mylibrary.utils.LogUtil;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -40,7 +40,7 @@ public class LoggingInterceptor implements Interceptor {
                 body = buffer.readString(charset);
             }
 
-            L.i("请求："+"\n url" + request.url()+ "\n body   " + body);
+            LogUtil.i("请求："+"\n url" + request.url()+ "\n body   " + body);
 
 
             ResponseBody responseBody = response.body();
@@ -58,7 +58,7 @@ public class LoggingInterceptor implements Interceptor {
                 }
             }
             rBody = buffer.clone().readString(charset);
-            L.i("收到响应\n"+response.request().url()+"\n"+rBody);
+            LogUtil.i("收到响应\n"+response.request().url()+"\n"+rBody);
         }catch (Exception e){
 
         }
