@@ -8,7 +8,6 @@ import com.framework.app.bean.PlatformBean;
 import com.framework.app.contract.AddBillFragmentContract;
 import com.framework.app.net.NetClient;
 import com.framework.app.net.SimpleSubscriber;
-import com.framework.app.utils.L;
 import com.framework.app.utils.ToastUtils;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -39,7 +38,6 @@ public class AddBillPresenter extends BasePresenter<AddBillFragmentContract> {
 
                     @Override
                     public void error(String errMessage) {
-                        L.i(errMessage);
                         ToastUtils.show(errMessage);
                     }
                 });

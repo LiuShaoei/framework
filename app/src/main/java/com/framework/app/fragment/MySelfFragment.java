@@ -1,16 +1,14 @@
 package com.framework.app.fragment;
 
-import android.content.Intent;
-import android.graphics.Color;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.framework.app.R;
 import com.framework.app.activity.LoginActivity;
 import com.framework.app.base.BaseFragment;
 import com.framework.app.base.BasePresenter;
 import com.framework.app.base.BaseView;
-import com.framework.app.utils.StatusBar;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -19,12 +17,14 @@ import butterknife.OnClick;
  * Created by admin on 2017/12/18.
  */
 
-public class MySelfFragment extends BaseFragment<BaseView,BasePresenter<BaseView>> {
+public class MySelfFragment extends BaseFragment<BaseView, BasePresenter<BaseView>> {
 
-    @BindView(R.id.top_ll)
-    LinearLayout view;
-    @BindView(R.id.center_title)
-    TextView title;
+    @BindView(R.id.login)
+    Button login;
+    @BindView(R.id.register)
+    Button register;
+    @BindView(R.id.test)
+    Button test;
 
     public static MySelfFragment getInStance() {
         MySelfFragment fragment = new MySelfFragment();
@@ -32,19 +32,19 @@ public class MySelfFragment extends BaseFragment<BaseView,BasePresenter<BaseView
     }
 
     @Override
-    protected BasePresenter<BaseView> creatPresenter() {
+    protected BasePresenter<BaseView> createPresenter() {
         return null;
     }
 
     @Override
     protected LinearLayout getLinearLayout() {
-        return view;
+        return null;
     }
 
 
     @Override
     protected void initData() {
-        title.setText("我的");
+
     }
 
     @Override
@@ -53,10 +53,16 @@ public class MySelfFragment extends BaseFragment<BaseView,BasePresenter<BaseView
     }
 
 
-
-    @OnClick(R.id.login)
-    public void onViewClicked() {
-
-        startActivity(new Intent(getActivity(),LoginActivity.class));
+    @OnClick({R.id.login, R.id.register, R.id.test})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.login:
+                startActivity(LoginActivity.class);
+                break;
+            case R.id.register:
+                break;
+            case R.id.test:
+                break;
+        }
     }
 }

@@ -36,6 +36,16 @@ public class AddBillActivity extends BaseActivity<BaseView, BasePresenter<BaseVi
     }
 
     @Override
+    protected void setTitleBar() {
+
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
     protected void initData() {
 
         mAdapter = new AddBillFragmentAdapter(getSupportFragmentManager());
@@ -45,11 +55,6 @@ public class AddBillActivity extends BaseActivity<BaseView, BasePresenter<BaseVi
         addBillTab.setupWithViewPager(addBillVp);
 
 
-    }
-
-    @Override
-    protected LinearLayout getTopView() {
-        return null;
     }
 
 }

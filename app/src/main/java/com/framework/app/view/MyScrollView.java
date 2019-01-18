@@ -5,8 +5,6 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ScrollView;
 
-import com.framework.app.utils.LogUtil;
-
 /**
  * Created by admin on 2018/3/21.
  */

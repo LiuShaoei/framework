@@ -2,7 +2,7 @@ package com.framework.app.presenter;
 
 import com.framework.app.R;
 import com.framework.app.base.BasePresenter;
-import com.framework.app.base.BaseView;
+
 import com.framework.app.contract.HomeFragMentContract;
 import com.framework.app.view.GlideImageLoader;
 import com.youth.banner.Banner;

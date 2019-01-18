@@ -16,7 +16,8 @@ import com.framework.app.presenter.MainPresenter;
 
 import butterknife.BindView;
 
-public class MainActivity extends BaseActivity<MainContract, MainPresenter> implements MainContract, RadioGroup.OnCheckedChangeListener {
+public class MainActivity extends BaseActivity<MainContract, MainPresenter> implements
+        MainContract, RadioGroup.OnCheckedChangeListener {
 
     @BindView(R.id.radio_home)
     RadioButton radioHome;
@@ -34,6 +35,15 @@ public class MainActivity extends BaseActivity<MainContract, MainPresenter> impl
         return R.layout.activity_main;
     }
 
+    @Override
+    protected void setTitleBar(){
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
 
     @Override
     protected void initData() {
@@ -45,10 +55,6 @@ public class MainActivity extends BaseActivity<MainContract, MainPresenter> impl
     }
 
 
-    @Override
-    protected LinearLayout getTopView() {
-        return null;
-    }
 
 
     @Override

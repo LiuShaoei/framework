@@ -1,6 +1,5 @@
 package com.framework.app.contract;
 
-import com.framework.app.base.BasePresenter;
 import com.framework.app.base.BaseView;
 import com.youth.banner.Banner;
 

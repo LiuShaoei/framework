@@ -1,21 +1,14 @@
 package com.framework.app.fragment;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.framework.app.R;
 import com.framework.app.base.BaseFragment;
 import com.framework.app.base.BasePresenter;
 import com.framework.app.base.BaseView;
-import com.framework.app.utils.PublicStaticClass;
 import com.framework.app.view.MyScrollView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 /**
  * Created by admin on 2018/3/21.
@@ -27,7 +20,7 @@ public class TwoFragment extends BaseFragment<BaseView,BasePresenter<BaseView>> 
     MyScrollView twoScrollview;
 
     @Override
-    protected BasePresenter<BaseView> creatPresenter() {
+    protected BasePresenter<BaseView> createPresenter() {
         return null;
     }
 
@@ -53,9 +46,9 @@ public class TwoFragment extends BaseFragment<BaseView,BasePresenter<BaseView>> 
             @Override
             public void onScroll(int scrollY) {
                 if (scrollY == 0) {
-                    PublicStaticClass.IsTop = true;
+                 //   PublicStaticClass.IsTop = true;
                 } else {
-                    PublicStaticClass.IsTop = false;
+                   // PublicStaticClass.IsTop = false;
                 }
             }
 

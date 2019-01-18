@@ -1,9 +1,8 @@
 package com.framework.app.utils;
 
 /**
- * Created by admin on 2018/3/21.
+ * Created by LiuZhaowei on 2019/1/18 0018.
  */
-
 public class PublicStaticClass {
-    public static boolean IsTop=false;
+    public static boolean IsTop;
 }

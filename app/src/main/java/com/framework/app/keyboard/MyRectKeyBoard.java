@@ -18,8 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.framework.app.R;
-import com.framework.app.utils.DisplayUtil;
-import com.framework.app.utils.L;
+import xst.app.com.mylibrary.utils.DisplayUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -127,7 +126,6 @@ public class MyRectKeyBoard extends GridLayout implements View.OnClickListener, 
 
         //获取随机键盘数字的字符串
         List<String> keyList = randomKeys(10);
-        L.i("-------"+keyList.size());
         //填充键盘Key,用Button来完成Key功能
         for (int i = 0; i < keyList.size(); i++) {
 
@@ -217,7 +215,7 @@ public class MyRectKeyBoard extends GridLayout implements View.OnClickListener, 
     @Override
     public void onClick(View v) {
         String character = v.getTag().toString();
-        L.i("-------"+character);
+
         handlerClick(character);
     }
 

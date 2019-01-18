@@ -3,7 +3,7 @@ package com.framework.app.presenter;
 import android.support.v4.app.FragmentManager;
 
 import com.framework.app.base.BasePresenter;
-import com.framework.app.base.BaseView;
+
 import com.framework.app.contract.MainContract;
 import com.framework.app.utils.FragmentUtils;
 

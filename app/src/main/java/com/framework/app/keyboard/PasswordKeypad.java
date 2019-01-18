@@ -78,7 +78,7 @@ public class PasswordKeypad extends DialogFragment implements View.OnClickListen
         //去掉边框
         window.setBackgroundDrawable(new ColorDrawable(0xffffffff));
         window.setLayout(dm.widthPixels, window.getAttributes().height);
-        window.setWindowAnimations(R.style.exist_menu_animstyle);
+        window.setWindowAnimations(R.style.exist_menu_anim_style);
         window.setGravity(Gravity.BOTTOM);
     }
 

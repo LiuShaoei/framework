@@ -4,12 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/top_ll_view" />
-
-    <include layout="@layout/main_head_title" />
 
     <TextView
-        android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginTop="100dp"
@@ -17,5 +13,20 @@
         android:gravity="center"
         android:text="调转"
         android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/login"
+        style="@style/MyButtonStyle"
+        android:text="登录" />
+
+    <Button
+        android:id="@+id/register"
+        style="@style/MyButtonStyle"
+        android:text="注册" />
+
+    <Button
+        android:id="@+id/test"
+        style="@style/MyButtonStyle"
+        android:text="测试" />
 
 </LinearLayout>
