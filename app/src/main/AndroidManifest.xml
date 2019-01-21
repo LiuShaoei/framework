@@ -40,6 +40,7 @@
         <activity android:name=".activity.RegisterActivity"/>
         <activity android:name=".activity.AddBillActivity" />
         <activity android:name=".activity.WebViewActivity"/>
+        <activity android:name=".activity.TestActivity"/>
     </application>
 
 </manifest>

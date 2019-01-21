@@ -38,7 +38,7 @@ public class LoginActivity extends BaseActivity<LoginContract, BasePresenter<Log
 
     @Override
     protected void setTitleBar() {
-        new NavigationBar.Builder(this).setTitle("登录").builder();
+        new NavigationBar.Builder(this).setTitle(getResources().getString(R.string.login_text)).builder();
     }
 
 

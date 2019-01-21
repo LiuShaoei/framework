@@ -51,7 +51,27 @@ public abstract class AppBaseActivity extends android.support.v7.app.AppCompatAc
      * @param cls 目标Activity的Class
      */
     public void startActivity(Class<? extends Activity> cls) {
-        startActivity(new Intent(this, cls));
+        startActivity(cls, null);
+    }
+
+    public void startActivity(Class<? extends Activity> cls, Bundle bundle) {
+        Intent intent = new Intent(this, cls);
+        if (bundle != null) {
+            intent.putExtras(bundle);
+        }
+        startActivity(intent);
+    }
+
+    public void startActivityForResult(Class<? extends Activity> cls, int requestCode) {
+        startActivityForResult(cls, null, requestCode);
+    }
+
+    public void startActivityForResult(Class<? extends Activity> cls, Bundle bundle, int requestCode) {
+        Intent intent = new Intent(this, cls);
+        if (bundle != null) {
+            intent.putExtras(bundle);
+        }
+        startActivityForResult(intent, requestCode);
     }
 
     /**

@@ -96,7 +96,7 @@ public final class EditTextInputHelper implements TextWatcher {
     /**
      * 设置View的事件
      *
-     * @param enabled               启用或者禁用View的事件
+     * @param enabled 启用或者禁用View的事件
      */
     public void setEnabled(boolean enabled) {
         if (enabled == mView.isEnabled()) return;
