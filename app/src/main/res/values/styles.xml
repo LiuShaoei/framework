@@ -19,10 +19,10 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
     </style>
-
+    <!--自定义键盘的弹起和隐藏-->
     <style name="exist_menu_anim_style">
-        <item name="android:windowEnterAnimation">@anim/bottom_in</item>
-        <item name="android:windowExitAnimation">@anim/bottom_out</item>
+        <item name="android:windowEnterAnimation">@anim/keyword_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/keyword_bottom_out</item>
     </style>
 
     <style name="radio_button">
@@ -39,10 +39,6 @@
     </style>
 
 
-    <style name="CustomDialog">
-        <item name="android:windowEnterAnimation">@anim/dialog_push_in</item>
-        <item name="android:windowExitAnimation">@anim/dialog_push_out</item>
-    </style>
 
     <style name="progress_dialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>

@@ -10,11 +10,12 @@ import com.framework.app.base.BaseActivity;
 import com.framework.app.base.BaseView;
 import com.framework.app.contract.RegisterContract;
 import com.framework.app.presenter.RegisterPresenter;
+import com.framework.app.utils.ToastUtils;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import xst.app.com.mylibrary.utils.CountdownView;
-import com.framework.app.utils.ToastUtils;
+import xst.app.com.mylibrary.utils.navigationbar.NavigationBar;
 import xst.app.com.mylibrary.utils.text.EditTextInputHelper;
 
 /**
@@ -59,6 +60,7 @@ public class RegisterActivity extends BaseActivity<RegisterContract, RegisterPre
     @Override
     protected void initData() {
         mContext = RegisterActivity.this;
+        new NavigationBar.Builder(this).setTitle("注册").builder();
     }
 
     @Override

@@ -23,6 +23,10 @@
         android:id="@+id/register"
         style="@style/MyButtonStyle"
         android:text="注册" />
+    <Button
+        android:id="@+id/web_view"
+        style="@style/MyButtonStyle"
+        android:text="webView" />
 
     <Button
         android:id="@+id/test"

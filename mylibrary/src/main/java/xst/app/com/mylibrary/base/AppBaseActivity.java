@@ -17,7 +17,9 @@ public abstract class AppBaseActivity extends android.support.v7.app.AppCompatAc
         if (getLayoutId() > 0) {
             setContentView(getLayoutId());
         }
+        init();
     }
+
     public void init() {
         initView();
         initData();

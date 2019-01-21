@@ -98,6 +98,6 @@ public abstract class BaseFragment<V, T extends BasePresenter<V>> extends Fragme
     }
 
     public void enterActivityAnimation() {
-        getActivity().overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
+        getActivity().overridePendingTransition(R.anim.activity_slide_from_right, R.anim.activity_slide_to_left);
     }
 }

@@ -176,7 +176,7 @@ public class PasswordKeypad extends DialogFragment implements View.OnClickListen
 
     }
     public void shakeAnimation(Context context){
-        Animation animation=AnimationUtils.loadAnimation(context,R.anim.shake);
+        Animation animation=AnimationUtils.loadAnimation(context,R.anim.keyword_shake);
         errorMsgTv.startAnimation(animation);
 
         new Handler().postDelayed(new Runnable() {

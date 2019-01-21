@@ -9,21 +9,19 @@ import com.framework.app.R;
 import com.framework.app.net.NetChangeObserver;
 import com.framework.app.net.NetStateReceiver;
 import com.framework.app.net.NetUtils;
-import com.framework.app.utils.DialogUtils;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-import xst.app.com.mylibrary.base.AppBaseActivity;
+import xst.app.com.mylibrary.utils.dialog.AlertDialog;
 
 /**
  * Created by admin on 2017/12/19.
  */
 
-public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppBaseActivity {
-    private Unbinder unbinder;
+public abstract class BaseActivity<V, T extends BasePresenter<V>> extends UiActivity {
+
     protected T mPresenter;
+    private AlertDialog mAlertDialog;
     /**
      * 网络观察者
      */
@@ -35,7 +33,7 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppBas
         super.onCreate(savedInstanceState);
         getWindow().setBackgroundDrawable(null);
         MyApp.getInstance().activityList.add(this);
-        unbinder = ButterKnife.bind(this);
+
 //        if (getTopView() == null) {
 //            QMUIStatusBarHelper.translucent(this);
 //            QMUIStatusBarHelper.setStatusBarLightMode(this);
@@ -55,12 +53,15 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppBas
                 onNetworkDisConnected();
             }
         };
+    }
+
+    @Override
+    public void init() {
         mPresenter = createPresenter();
         if (mPresenter != null) {
             mPresenter.attachView((V) this);
         }
         super.init();
-
     }
 
     public abstract T createPresenter();
@@ -81,9 +82,7 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppBas
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (unbinder != null) {
-            unbinder.unbind();
-        }
+
         if (mPresenter != null) {
             mPresenter.detachView();
         }
@@ -97,6 +96,9 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppBas
      * @param type 网络状态
      */
     protected void onNetworkConnected(NetUtils.NetType type) {
+        if (mAlertDialog != null) {
+            mAlertDialog.dismiss();
+        }
 
     }
 
@@ -104,22 +106,23 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppBas
      * 网络断开的时候调用
      */
     protected void onNetworkDisConnected() {
+        mAlertDialog = new AlertDialog.Builder(this).
+                setContentView(R.layout.dialog_custom).
+                setCancelable(false).
+                setText(R.id.title, "网络提醒").
+                setText(R.id.message, "网络连接失败,请检查网络").
+                setText(R.id.negative, "取消").
+                setText(R.id.positive, "确认").
+                show();
+        mAlertDialog.setOnClickListener(R.id.negative, (v -> {
+            mAlertDialog.dismiss();
+        }));
+        mAlertDialog.setOnClickListener(R.id.positive, (v -> {
+            //设置网络
+            Intent intent = new Intent("android.settings.WIRELESS_SETTINGS");
+            startActivity(intent);
+        }));
 
-        DialogUtils.getInstance(new DialogUtils.Builder().setTitle("网络提醒")
-                .setMessage("网络连接失败,请检查网络")
-                .setonClickButtonListener(new DialogUtils.onClickButtonListener() {
-                    @Override
-                    public void clickNegative() {
-
-                    }
-
-                    @Override
-                    public void clickPositive() {
-                        //设置网络
-                        Intent intent = new Intent("android.settings.WIRELESS_SETTINGS");
-                        startActivity(intent);
-                    }
-                })).showDialog(getFragmentManager());
     }
 
     public void addDisposed(Disposable disposable) {
@@ -141,11 +144,11 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppBas
     }
 
     public void enterActivityAnimation() {
-        overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
+        overridePendingTransition(R.anim.activity_slide_from_right, R.anim.activity_slide_to_left);
     }
 
     public void exitActivityAnimation() {
-        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
+        overridePendingTransition(R.anim.activity_slide_from_left, R.anim.activity_slide_to_right);
     }
 
 }
